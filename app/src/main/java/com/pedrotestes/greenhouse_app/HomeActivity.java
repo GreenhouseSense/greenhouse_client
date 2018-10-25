@@ -31,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         //adding some items to our list
-        for(int i = 0; i<10; i++) {
+        for(int i = 0; i<6; i++) {
             greenhousesList.add(
                     new Greenhouse(
                             i,
@@ -39,7 +39,7 @@ public class HomeActivity extends AppCompatActivity {
                             "13.3 inch, Silver, 1.35 kg",
                             4.3,
                             60000,
-                            R.drawable.ic_android_black_24dp));
+                            R.mipmap.gh1));
         }
 
 
