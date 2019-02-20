@@ -19,6 +19,8 @@ class GreenhouseAdapter extends RecyclerView.Adapter<GreenhouseAdapter.ItemViewH
     //we are storing all the ptems in a list
     private List<Greenhouse> ptemList;
 
+    ClickListner clicklistner;
+
     //getting the context and ptem list with constructor
     public GreenhouseAdapter(Context mCtx, List<Greenhouse> ptemList) {
         this.mCtx = mCtx;
@@ -43,7 +45,6 @@ class GreenhouseAdapter extends RecyclerView.Adapter<GreenhouseAdapter.ItemViewH
         holder.textViewShortDesc.setText(ptem.getShortdesc());
         holder.textViewRating.setText(String.valueOf(ptem.getRating()));
         holder.textViewPrice.setText(String.valueOf(ptem.getPrice()));
-
         holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(ptem.getImage()));
 
     }
@@ -55,7 +56,7 @@ class GreenhouseAdapter extends RecyclerView.Adapter<GreenhouseAdapter.ItemViewH
     }
 
 
-    class ItemViewHolder extends RecyclerView.ViewHolder {
+    class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView textViewTitle, textViewShortDesc, textViewRating, textViewPrice;
         ImageView imageView;
@@ -68,6 +69,24 @@ class GreenhouseAdapter extends RecyclerView.Adapter<GreenhouseAdapter.ItemViewH
             textViewRating = itemView.findViewById(R.id.textViewRating);
             textViewPrice = itemView.findViewById(R.id.textViewPrice);
             imageView = itemView.findViewById(R.id.imageView);
+            itemView.setOnClickListener(this);
+            //itemView.setOnLongClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            clicklistner.itemClicked(itemView, getAdapterPosition());
+        }
+
+
     }
+
+    public void setOnClickListner(ClickListner clicklistner) {
+        this.clicklistner = clicklistner;
+    }
+
+    public interface ClickListner {
+        void itemClicked(View view, int position);
+    }
+
 }

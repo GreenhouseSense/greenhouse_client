@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements GreenhouseAdapter.ClickListner {
     //a list to store all the products
     List<Greenhouse> greenhousesList;
 
@@ -21,7 +23,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 
-
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -31,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         //adding some items to our list
-        for(int i = 0; i<6; i++) {
+        for (int i = 0; i < 1; i++) {
             greenhousesList.add(
                     new Greenhouse(
                             i,
@@ -48,7 +49,16 @@ public class HomeActivity extends AppCompatActivity {
 
         //setting adapter to recyclerview
         recyclerView.setAdapter(greenhouseAdapter);
+        greenhouseAdapter.setOnClickListner(this);
 
 
     }
+
+    @Override
+    public void itemClicked(View view, int position) {
+        Greenhouse greenhouse = greenhousesList.get(position);
+        Toast.makeText(getApplicationContext(), greenhouse.getTitle().toString(), Toast.LENGTH_LONG).show();
+    }
+
+
 }
