@@ -61,4 +61,29 @@ public class HomeActivity extends AppCompatActivity implements GreenhouseAdapter
     }
 
 
+//    @Override
+//    public void itemClicked(View view, int position) {
+//        PatientListRow choosenOne = plist.get(position);
+//
+//        SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(PATIENTDATA, Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPref.edit();
+//        editor.putString("patientId", choosenOne.getPatientID());
+//        editor.putString("shortName", choosenOne.getShortName());
+//        editor.putString("photoPath", choosenOne.getPhotoPath());
+//        editor.putString("photoName", choosenOne.getPhotoName());
+//        editor.putString("dateOfBirthday", choosenOne.getDateOfBirthday());
+//        editor.putString("gender", choosenOne.getGender());
+//        editor.putString("historic", choosenOne.getHistoric());
+//        editor.putString("phonenumber", choosenOne.getPhonenumber());
+//        editor.putString("completename", choosenOne.getCompleteName());
+//        editor.putString("ethnicity", choosenOne.getEthnicity());
+//
+//        editor.apply();
+//
+//        Intent startPatientActivity = new Intent(HomeActivity.this, PatientActivity.class);
+//        startActivity(startPatientActivity);
+//
+//    }
+
+
 }
