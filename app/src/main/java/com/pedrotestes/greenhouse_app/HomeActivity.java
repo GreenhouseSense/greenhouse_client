@@ -32,7 +32,7 @@ public class HomeActivity extends AppCompatActivity implements GreenhouseAdapter
 
 
         //adding some items to our list
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 5; i++) {
             greenhousesList.add(
                     new Greenhouse(
                             i,
@@ -56,8 +56,8 @@ public class HomeActivity extends AppCompatActivity implements GreenhouseAdapter
 
     @Override
     public void itemClicked(View view, int position) {
-        Greenhouse greenhouse = greenhousesList.get(position);
-        Toast.makeText(getApplicationContext(), greenhouse.getTitle().toString(), Toast.LENGTH_LONG).show();
+        Greenhouse clickedGreenhouse = greenhousesList.get(position);
+        Toast.makeText(getApplicationContext(), clickedGreenhouse.getTitle().toString(), Toast.LENGTH_LONG).show();
     }
 
 
