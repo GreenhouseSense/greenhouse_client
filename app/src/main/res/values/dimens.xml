@@ -5,4 +5,7 @@
     <dimen name="font_title">42sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="item_list_padding">8dp</dimen>
+    <dimen name="sensor_reading_widget_dim">120dp</dimen>
+    <dimen name="sensor_reading_widget_img">90dp</dimen>
 </resources>

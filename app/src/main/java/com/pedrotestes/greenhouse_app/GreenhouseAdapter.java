@@ -12,25 +12,20 @@ import java.util.List;
 
 class GreenhouseAdapter extends RecyclerView.Adapter<GreenhouseAdapter.ItemViewHolder> {
 
-
-    //this context we will use to inflate the layout
-    private Context mCtx;
-
-    //we are storing all the ptems in a list
+    private Context mContext;
     private List<Greenhouse> ptemList;
 
     ClickListner clicklistner;
 
-    //getting the context and ptem list with constructor
-    public GreenhouseAdapter(Context mCtx, List<Greenhouse> ptemList) {
-        this.mCtx = mCtx;
+    public GreenhouseAdapter(Context context, List<Greenhouse> ptemList) {
+        this.mContext = context;
         this.ptemList = ptemList;
     }
 
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //inflating and returning our view holder
-        LayoutInflater inflater = LayoutInflater.from(mCtx);
+        LayoutInflater inflater = LayoutInflater.from(mContext);
         View view = inflater.inflate(R.layout.greenhouse_list_item, null);
         return new ItemViewHolder(view);
     }
@@ -45,7 +40,7 @@ class GreenhouseAdapter extends RecyclerView.Adapter<GreenhouseAdapter.ItemViewH
         holder.textViewShortDesc.setText(ptem.getShortdesc());
         holder.textViewRating.setText(String.valueOf(ptem.getRating()));
         holder.textViewPrice.setText(String.valueOf(ptem.getPrice()));
-        holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(ptem.getImage()));
+        holder.imageView.setImageDrawable(mContext.getResources().getDrawable(ptem.getImage()));
 
     }
 

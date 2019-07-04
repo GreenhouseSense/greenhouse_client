@@ -1,9 +1,11 @@
 package com.pedrotestes.greenhouse_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -56,8 +58,15 @@ public class HomeActivity extends AppCompatActivity implements GreenhouseAdapter
 
     @Override
     public void itemClicked(View view, int position) {
+        Log.i("INFO","Recycle view item clicked");
         Greenhouse clickedGreenhouse = greenhousesList.get(position);
         Toast.makeText(getApplicationContext(), clickedGreenhouse.getTitle().toString(), Toast.LENGTH_LONG).show();
+        GreenhouseFragment nextFrag= new GreenhouseFragment();
+        this.getSupportFragmentManager().beginTransaction()
+                //.replace(R.id.fragment_greenhouse, nextFrag, "findThisFragment")
+                .replace(R.id.activity_home_layout,nextFrag,"findThisFragment")
+                .addToBackStack(null)
+                .commit();
     }
 
 
